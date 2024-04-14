@@ -1,0 +1,51 @@
+<div class="container-fluid shadow w-75 border border-top-0 p-0">
+
+  <p class="row w-100 m-0">
+    <button class="btn btn-primary" style="text-align:start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      + Create Departement Business Rules
+   </button>
+  </p>
+  <div class="collapse " id="collapseExample">
+    <div class="container w-75  border border-top-0 rounded-1 mb-4">
+      <p class="row  bg-primary my-4 py-2  ps-2 text-light rounded-1">
+        Departement Business Rules
+      </p>
+
+      <div class="row py-4">
+        <div class="col-4">Rules Name *</div>
+        <div class="col-8">
+          <input class="form-control " type="text" placeholder="Rule" aria-label=".form-control-lg example">
+        </div>
+      </div>
+      <div class="row py-4">
+        <div class="col-4">Departments * </div>
+        <div class="col-8">
+          <app-dropdown-select [flag]="false" [categories]="departement" ></app-dropdown-select>
+        </div>
+      </div>
+      <div class="row py-4">
+        <div class="col-4">Rules List * </div>
+        <div class="col-8">
+          <app-dropdown-select [flag]="true" [categories]="selected" (newItemEvent)="addItem($event)"></app-dropdown-select>
+        </div>
+      </div>
+      <app-table [products]="items"></app-table>
+    </div>
+    <div class="container w-75">
+      <div class="row py-4">
+        <div class="col-2">status :</div>
+        <div class="col-3">
+          <input class="form-control " disabled type="text" placeholder="Active" aria-label=".form-control-lg example">
+        </div>
+      </div>
+      <div class="row justify-content-end py-4">
+        <div class="col-4 justify-content-between">
+            <button type="button" class="btn btn-danger mx-1 rounded-pill" style="width:45%">close</button>
+            <button type="button" class="btn btn-info text-light  mx-1 rounded-pill" style="width:45%">Save</button>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

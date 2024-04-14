@@ -1,0 +1,12 @@
+<ng-select [items]="categories"
+bindLabel="name"
+placeholder="Select"
+appendTo="body"
+[multiple]= "flag"
+[closeOnSelect]="false"
+[searchable]="false"
+[(ngModel)]="selected"
+(change)="addNewItem(selected)"
+>
+</ng-select>
+

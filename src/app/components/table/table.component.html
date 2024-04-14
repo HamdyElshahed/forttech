@@ -1,0 +1,54 @@
+<p-table *ngIf="products" [value]="products" [tableStyle]="{ 'min-width': '10rem' }">
+  <ng-template pTemplate="body" let-product>
+    <tr class="border border-bottom-0">
+      <td *ngIf="product.nameValid">{{ product.name }}</td>
+      <td *ngIf="product.status.isOpen">
+        <app-dropdown-select [flag]="false" [categories]="product.status.options"
+          (newItemEvent)="addItem($event, product.id)"></app-dropdown-select>
+      </td>
+      <td *ngIf="product.status.value === 'yes'">
+        {{ product.status.minutes.isOpen }}
+      </td>
+      <td *ngIf="product.status.value === 'yes'">
+    <tr>
+      <td [pEditableColumn]="product.status.directions.isOpen" pEditableColumnField="name">
+        <input pInputText type="text" class="form-control" [(ngModel)]="product.status.directions.value" required
+          id="exampleFormControlInput1" placeholder="name@example.com" />
+      </td>
+      <td>{{ product.status.directions.isOpen }}</td>
+    </tr>
+    </td>
+    <td colspan="4">
+      <p-table *ngIf="product.table.isTable" [value]="product.table.tableBody" [tableStyle]="{ 'min-width': '10rem' }">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Reason</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Actions</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-pd>
+          <tr>
+            <td>
+              <app-dropdown-select></app-dropdown-select>
+            </td>
+            <td>
+              <input pInputText type="date" class="form-control" [(ngModel)]="product.table.value" required
+                id="exampleFormControlInput2" />
+            </td>
+            <td>
+              <input pInputText type="date" class="form-control" [(ngModel)]="product.table.value" required
+                id="exampleFormControlInput3" />
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger text-light w-50" >+</button>
+
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
